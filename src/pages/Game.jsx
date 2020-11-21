@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useScore } from "../contexts/ScoreContext";
 import {
   StyledCharacter,
   StyledGame,
@@ -8,11 +9,11 @@ import {
 import { Strong } from "../styled/Random";
 
 export default function Game({ history }) {
-  const MAX_SECONDS = 90;
+  const MAX_SECONDS = 5;
   const CHARACTERS = "abcdefghijklmnopqrstuvwxyz0123456789";
 
   const [currentCharacter, setCurrentCharacter] = useState("");
-  const [score, setScore] = useState(1);
+  const [score, setScore] = useScore();
   const [seconds, setSeconds] = useState(MAX_SECONDS);
   const [ms, setMs] = useState(0);
 
@@ -20,6 +21,7 @@ export default function Game({ history }) {
     const currentTime = new Date();
     const interval = setInterval(() => updateTime(currentTime), 1);
 
+    setScore(0);
     setRandomCharacter();
 
     return () => clearInterval(interval);

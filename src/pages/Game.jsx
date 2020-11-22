@@ -25,6 +25,7 @@ export default function Game({ history }) {
     setRandomCharacter();
 
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -73,7 +74,7 @@ export default function Game({ history }) {
 
       setRandomCharacter();
     },
-    [currentCharacter, score]
+    [currentCharacter, score, setScore]
   );
 
   useEffect(() => {

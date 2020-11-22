@@ -1,5 +1,5 @@
 // netlify will check for exports.handler
-exports.handler = (event, context, callback) => {
+exports.handler = async (event, context, callback) => {
   return {
     statusCode: 200,
     body: JSON.stringify({

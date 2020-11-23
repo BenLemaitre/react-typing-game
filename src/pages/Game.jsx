@@ -63,7 +63,6 @@ export default function Game({ history }) {
 
   const keyupHandler = useCallback(
     (e) => {
-      console.log(currentCharacter + " " + e.key);
       if (e.key === currentCharacter) {
         setScore((prevScore) => prevScore + 1);
       } else {

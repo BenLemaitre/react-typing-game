@@ -3,6 +3,7 @@ import { useScore } from "../contexts/ScoreContext";
 
 import { StyledCharacter } from "../styled/Game";
 import { StyledLink } from "../styled/Navbar";
+import { StyledTitle } from "../styled/Random";
 
 export default function GameOver({ history }) {
   const [score] = useScore();
@@ -35,15 +36,19 @@ export default function GameOver({ history }) {
     };
 
     saveHighScore();
-  }, []);
+  }, [score]);
 
   return (
     <div>
-      <h1>GameOver </h1>
+      <StyledTitle>Game Over</StyledTitle>
+      <h2>{scoreMessage}</h2>
       <StyledCharacter>{score}</StyledCharacter>
-      <p>{scoreMessage}</p>
-      <StyledLink to="/">Home</StyledLink>
-      <StyledLink to="/game">Play Again ?</StyledLink>
+      <div>
+        <StyledLink to="/">Home</StyledLink>
+      </div>
+      <div>
+        <StyledLink to="/game">Play Again ?</StyledLink>
+      </div>
     </div>
   );
 }

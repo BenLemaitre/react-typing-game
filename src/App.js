@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Game from "./pages/Game";
 import HighScores from "./pages/HighScores";
@@ -11,6 +12,11 @@ import { Main } from "./styled/Main";
 import Global from "./styled/Global";
 
 function App() {
+  const { loading } = useAuth0();
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
   return (
     <Router>
       <Global />

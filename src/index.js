@@ -11,6 +11,7 @@ ReactDOM.render(
     <Auth0Provider
       domain="dev-u8nbzetn.us.auth0.com"
       clientId="KT2baz3AJVvxqxoGxXNNiN3Ed2TkLmdj"
+      audience="https://reacttypinggame/"
     >
       <ScoreProvider>
         <App />

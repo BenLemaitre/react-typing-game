@@ -1,3 +1,12 @@
+const jwt = require("jsonwebtoken");
+const jwks = require("jwks-rsa");
+const jwksClient = jwks({
+  jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`,
+  audience: process.env.AUTH0_AUDIENCE,
+});
+
+const { promisify } = require("util");
+
 const getAccessTokenFromHeaders = (headers) => {
   const rawAuthorization = headers.authorization;
   if (!rawAuthorization) {
@@ -8,11 +17,33 @@ const getAccessTokenFromHeaders = (headers) => {
   if (authorizationParts[0] !== "Bearer" || authorizationParts.length !== 2) {
     return null;
   }
-
   const accessToken = authorizationParts[1];
   return accessToken;
 };
 
+const validateAccessToken = async (token) => {
+  try {
+    const decodedToken = jwt.decode(token, { complete: true });
+    const kid = decodedToken.header.kid;
+    const alg = decodedToken.header.alg;
+    const getSigninKey = promisify(jwksClient.getSigningKey);
+    const key = await getSigninKey(kid);
+    const signinKey = key.publicKey;
+
+    const options = {
+      algorithms: alg,
+    };
+
+    jwt.verify(token, signinKey, options);
+
+    return decodedToken.payload;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
+};
+
 module.exports = {
   getAccessTokenFromHeaders,
+  validateAccessToken,
 };

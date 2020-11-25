@@ -6,6 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import { ScoreProvider } from "./contexts/ScoreContext";
 import { Auth0Provider } from "@auth0/auth0-react";
 
+require("dotenv").config();
+
 ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider

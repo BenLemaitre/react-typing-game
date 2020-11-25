@@ -9,7 +9,7 @@ import { StyledTitle } from "../styled/Random";
 export default function GameOver({ history }) {
   const [score] = useScore();
   const [scoreMessage, setScoreMessage] = useState("");
-  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
+  const { user, getAccessTokenSilently, isAuthenticated } = useAuth0();
 
   if (score === -1) {
     history.push("/");
@@ -19,10 +19,11 @@ export default function GameOver({ history }) {
     const saveHighScore = async () => {
       try {
         const token = await getAccessTokenSilently();
+        console.log(user);
 
         const options = {
           method: "POST",
-          body: JSON.stringify({ name: "Benjamin", score }),
+          body: JSON.stringify({ name: user.name, score }),
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -45,7 +46,7 @@ export default function GameOver({ history }) {
     if (isAuthenticated) {
       saveHighScore();
     }
-  }, [score, getAccessTokenSilently, isAuthenticated]);
+  }, [score, user, getAccessTokenSilently, isAuthenticated]);
 
   return (
     <div>

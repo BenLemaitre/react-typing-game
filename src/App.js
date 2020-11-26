@@ -11,6 +11,7 @@ import { Container } from "./styled/Container";
 import { Main } from "./styled/Main";
 import Global from "./styled/Global";
 import { lightTheme, darkTheme } from "./styled/Themes";
+import Loader from "./styled/Loader";
 
 import { ThemeProvider } from "styled-components";
 import useTheme from "./hooks/UseTheme";
@@ -26,7 +27,11 @@ function App() {
       <ThemeProvider theme={currentTheme}>
         <Global />
         <Main>
-          {loading && <p>Loading ...</p>}
+          {loading && (
+            <Loader>
+              <p>Loading ...</p>
+            </Loader>
+          )}
           {!loading && (
             <Container>
               <Navbar toggleTheme={toggleTheme} />

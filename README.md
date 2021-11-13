@@ -4,32 +4,32 @@ Typing game built with React and styled components. Authentication is handled wi
 This simple game was made to have a better grasp of the React library and particulary React hooks.
 
 
-### Technologies used
+## Technologies used
 * React
 * Styled-components
 * Auth0
 * Airtable
 
 
-### Live Demo
+## Preview
+<a href="https://ibb.co/4KMwC2h"><img src="https://i.ibb.co/zQbWCFq/Screenshot-from-2021-11-13-22-58-12.png" alt="Screenshot-from-2021-11-13-22-58-12" border="0"></a>
+
+
+## Live Demo
 The project was deployed with netlify.
 
 <a href="https://relaxed-knuth-4c6878.netlify.app/">Link !</a>
 
 
-### Preview
-<a href="https://ibb.co/4KMwC2h"><img src="https://i.ibb.co/zQbWCFq/Screenshot-from-2021-11-13-22-58-12.png" alt="Screenshot-from-2021-11-13-22-58-12" border="0"></a><br /><a target='_blank' href='https://fr.imgbb.com/'>image sans</a><br />
+## Run Locally
 
+Clone project <br>
+`git clone git@github.com:BenLemaitre/react-typing-game.git`
+<br>
 
-### Run Locally
+Install depedencies <br>
+`npm install`
+<br>
 
-Clone project
-#### `git clone git@github.com:BenLemaitre/react-typing-game.git`
-
-
-Install depedencies
-#### `npm install`
-
-
-Run project
-#### `npm run start`
+Run project <br>
+`npm run start`

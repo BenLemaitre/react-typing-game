@@ -9,7 +9,7 @@ import {
 import { Strong } from "../styled/Random";
 
 export default function Game({ history }) {
-  const MAX_SECONDS = 5;
+  const MAX_SECONDS = 30;
   const CHARACTERS = "abcdefghijklmnopqrstuvwxyz0123456789";
 
   const [currentCharacter, setCurrentCharacter] = useState("");

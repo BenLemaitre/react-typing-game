@@ -18,7 +18,7 @@ The project was deployed with netlify.
 
 
 ### Preview
-<a href="https://ibb.co/4KMwC2h"><img src="https://i.ibb.co/4KMwC2h/Screenshot-from-2021-11-13-22-58-12.png" alt="Screenshot-from-2021-11-13-22-58-12" border="0"></a>
+<a href="https://ibb.co/4KMwC2h"><img src="https://i.ibb.co/zQbWCFq/Screenshot-from-2021-11-13-22-58-12.png" alt="Screenshot-from-2021-11-13-22-58-12" border="0"></a><br /><a target='_blank' href='https://fr.imgbb.com/'>image sans</a><br />
 
 
 ### Run Locally
@@ -26,8 +26,10 @@ The project was deployed with netlify.
 Clone project
 #### `git clone git@github.com:BenLemaitre/react-typing-game.git`
 
+
 Install depedencies
 #### `npm install`
+
 
 Run project
 #### `npm run start`
